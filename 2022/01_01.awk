@@ -1,4 +1,4 @@
-#!/usr/bin/gawk -f
+#!/usr/bin/awk -f
 
 BEGIN {
     highestTotal = 0;
@@ -9,8 +9,7 @@ BEGIN {
     currentTotal += $1;
 }
 
-# for some reason blank line is one char, so /^$/ doesn't work :(
-length($0) == 1 {
+/^$/ {
     if (currentTotal > highestTotal) {
         highestTotal = currentTotal;
     }
